@@ -1,0 +1,22 @@
+{
+  "name": "nodejs_hotel_website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js",
+    "debug": "node --inspect src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "mongod": "^2.0.0",
+    "mongoose": "^5.8.0",
+    "nodemon": "^2.0.2",
+    "stripe": "^7.14.0"
+  }
+}
