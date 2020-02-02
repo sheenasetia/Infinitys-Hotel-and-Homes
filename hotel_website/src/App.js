@@ -15,6 +15,8 @@ import { BookNow } from './components/bookNow';
 import {ConfirmHotel} from './components/confirmHotel';
 import { Thankyou } from './components/Thankyou';
 import { MyBooking } from './components/myBookings';
+require('dotenv').config();
+
 class App extends React.Component {
   constructor() {
     super();
@@ -80,12 +82,13 @@ class App extends React.Component {
     tommorrow.setDate(today.getDate()+1);
     let formatted_date = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate()
     let next_date = tommorrow.getFullYear() + "-" + (tommorrow.getMonth() + 1) + "-" + tommorrow.getDate();
-
+    //const key = process.env.REACT_APP_RAPID_API_KEY;
+    //console.log(key)
     await fetch(`https://apidojo-booking-v1.p.rapidapi.com/locations/auto-complete?languagecode=en-us&text=${city}`, {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "apidojo-booking-v1.p.rapidapi.com",
-        "x-rapidapi-key": "9f8ad6c750mshf0b1f680b88141ep1deb54jsndb7cd93136e0"
+        "x-rapidapi-key": process.env.REACT_APP_RAPID_API_KEY
       }
       })
       .then(async (response)=> {
@@ -107,7 +110,7 @@ class App extends React.Component {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "apidojo-booking-v1.p.rapidapi.com",
-                "x-rapidapi-key": "9f8ad6c750mshf0b1f680b88141ep1deb54jsndb7cd93136e0"
+                "x-rapidapi-key": process.env.REACT_APP_RAPID_API_KEY
             }
         })
         if(!response.ok)
@@ -177,6 +180,8 @@ class App extends React.Component {
    
     this.setState({loading:true})
     await this.getResponse(city);
+    if(this.state.response===undefined)
+    return;
     await this.getSecondResponse(this.state.response[0].dest_id,ad,dd,room);
     this.setState({city:city , checkin:ad , checkout:dd , rooms:room})  
     }
@@ -242,7 +247,7 @@ class App extends React.Component {
 
     async setHotelResp(resp){
       await this.setState({hotelResp:resp});
-      console.log(this.state.hotelResp.hotel_name);
+      //console.log(this.state.hotelResp.hotel_name);
     }
 
     async confirm(price,roomss,checkin,checkout)
@@ -291,4 +296,6 @@ class App extends React.Component {
 }
 
 export default App;
+
+//"9f8ad6c750mshf0b1f680b88141ep1deb54jsndb7cd93136e0"
 

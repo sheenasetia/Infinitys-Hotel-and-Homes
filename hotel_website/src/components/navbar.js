@@ -14,23 +14,23 @@ export class Navbar extends React.Component {
           
             <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                
-                {/*<li className="nav-item">
-                  <Link className="nav-link" to="/about">ABOUT US</Link> 
-                </li>*/}
-              </ul>
-              <ul className="navbar-nav">
-                <li className="nav-item">
+              <li className="nav-item">
                   <Link className="nav-link" to="/" >HOME </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/about" >ABOUT </Link>
                 </li>
+                {/*<li className="nav-item">
+                  <Link className="nav-link" to="/about">ABOUT US</Link> 
+                </li>*/}
+              </ul>
+              <ul className="navbar-nav">
+                
                 <li className="nav-item">
-                  <Link className="nav-link" to="/mybookings" >MyBookings </Link>
+                  <Link className="nav-link" to="/mybookings" >BOOKINGS_HISTORY </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" onClick={this.props.dealLogout} >LOGOUT </a>
+                  <a className="navbar-brand" onClick={this.props.dealLogout} id="logout-nav">LOGOUT </a>
                 </li>
               </ul>
             </div>

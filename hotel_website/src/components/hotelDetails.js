@@ -1,6 +1,8 @@
 import React from 'react';
 import {Navbar} from './navbar';
 import { BookNow } from './bookNow';
+require('dotenv').config();
+
 export class HotelDetails extends React.Component {
   constructor() {
     super();
@@ -20,7 +22,7 @@ export class HotelDetails extends React.Component {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "apidojo-booking-v1.p.rapidapi.com",
-        "x-rapidapi-key": "9f8ad6c750mshf0b1f680b88141ep1deb54jsndb7cd93136e0"
+        "x-rapidapi-key": process.env.REACT_APP_RAPID_API_KEY
       }
     })
     .then((response)=> {
@@ -40,7 +42,7 @@ export class HotelDetails extends React.Component {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "apidojo-booking-v1.p.rapidapi.com",
-        "x-rapidapi-key": "9f8ad6c750mshf0b1f680b88141ep1deb54jsndb7cd93136e0"
+        "x-rapidapi-key": process.env.REACT_APP_RAPID_API_KEY
       }
     })
     .then((response)=> {
@@ -64,7 +66,7 @@ export class HotelDetails extends React.Component {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "apidojo-booking-v1.p.rapidapi.com",
-        "x-rapidapi-key": "9f8ad6c750mshf0b1f680b88141ep1deb54jsndb7cd93136e0"
+        "x-rapidapi-key": process.env.REACT_APP_RAPID_API_KEY
       }
     })
     .then((response)=> {
@@ -89,7 +91,7 @@ export class HotelDetails extends React.Component {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "apidojo-booking-v1.p.rapidapi.com",
-        "x-rapidapi-key": "9f8ad6c750mshf0b1f680b88141ep1deb54jsndb7cd93136e0"
+        "x-rapidapi-key": process.env.REACT_APP_RAPID_API_KEY
       }
     })
     .then((res) => {console.log('resp of map :',res);

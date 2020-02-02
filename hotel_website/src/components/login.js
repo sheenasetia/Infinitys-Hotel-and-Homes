@@ -34,7 +34,7 @@ export class Login extends React.Component {
         })
         .catch(error => {
             
-            alert('Bad Login Credentials')
+            alert('Wrong UserName Password')
            
             console.error(`Error adding user: ${error}`)
         })
@@ -63,8 +63,8 @@ export class Login extends React.Component {
                 <form onSubmit={this.dealLogin} >
                 <fieldset>
                 <legend>Login</legend>
-                    User Name:<br/><input type="text" placeholder="10 characters" maxLength="10" name="username" required/><br/><br/>
-                    Password:<br/><input type="password" placeholder="10 characters" maxLength="10" name="password" required/><br/><br/>
+                    User Name:<br/><input type="text" placeholder="max 10 characters" maxLength="10" name="username" required/><br/><br/>
+                    Password:<br/><input type="password" placeholder="max 10 characters" maxLength="10" name="password" required/><br/><br/>
                     <input type="submit" id="submit" value="Log In"/>
                     <p>Don't have an account ? <Link to="/signup" style={{color:"red"}}>Sign Up</Link> </p>
                 </fieldset>

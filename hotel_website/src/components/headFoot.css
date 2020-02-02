@@ -9,14 +9,25 @@
   background: #f8f9fa;
   box-shadow: 0 0px 10px 0 rgba(0,0,0,.2);
 }
-.navbar-light .navbar-nav .nav-link , 
-.navbar-light .navbar-brand  {
+
+
+.navbar-light .navbar-nav .nav-link{
+    color: black;
+    margin-right: 20px;
+}
+
+
+.navbar-light .navbar-brand , #logout-nav {
     color: #007bff;
     cursor: pointer;
 }
 
-.navbar-light .navbar-nav .nav-link:hover , 
-.navbar-light .navbar-brand:hover  {
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #007bff;
+    cursor: pointer;
+}
+
+.navbar-light .navbar-brand:hover , #logout-nav:hover {
     text-decoration: none;
     color: black;
     cursor: pointer;
@@ -314,6 +325,20 @@ font-size: x-small;
     }
 }
 
+/*MyBookings*/
 
+.BookingsContainer {
+    margin-top: 30px;
+    padding: 40px;
+}
+
+.BookingsContainer li .headin{
+    color: blue;
+    float: left;
+}
+
+.BookingsContainer li .content{
+    color: black;
+}
 
 

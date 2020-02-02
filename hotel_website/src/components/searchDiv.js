@@ -11,7 +11,6 @@ export class SearchDiv extends React.Component {
         this.getResponse1=this.getResponse1.bind(this);
         this.updatedate=this.updatedate.bind(this);
         this.handleInvalid=this.handleInvalid.bind(this);
-        //this.checkNumberFieldLength=this.checkNumberFieldLength.bind(this);
     }
 
     handleInvalid(e) {
@@ -24,8 +23,13 @@ export class SearchDiv extends React.Component {
     async updatedate() {
         console.log('update date');
         var firstdate = document.getElementById("checkin").value;
+        var newdate = new Date(firstdate);
+        newdate.setDate(newdate.getDate() + 20);
+        let maxdate=newdate.getFullYear() + "-" + (("0" + (newdate.getMonth() + 1)).slice(-2)) + "-" + ("0" + (newdate.getDate())).slice(-2)
+        console.log(maxdate);
         document.getElementById("checkout").value = "";
         document.getElementById("checkout").setAttribute("min",firstdate);
+        document.getElementById("checkout").setAttribute("max",maxdate);
         console.log(document.getElementById("checkout").getAttribute("min"));
       }
 
@@ -52,8 +56,8 @@ export class SearchDiv extends React.Component {
         let today = new Date();
         let tommorrow = new Date();
         tommorrow.setDate(today.getDate()+1);
-        let formatted_date = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate()
-        let next_date = tommorrow.getFullYear() + "-" + (tommorrow.getMonth() + 1) + "-" + tommorrow.getDate()
+        let formatted_date = today.getFullYear() + "-" + (("0" + (today.getMonth() + 1)).slice(-2)) + "-" + ("0" + (today.getDate())).slice(-2)
+        let next_date = tommorrow.getFullYear() + "-" + (("0" + (tommorrow.getMonth() + 1)).slice(-2)) + "-" + ("0" + (tommorrow.getDate())).slice(-2)
         console.log(formatted_date);
         console.log(next_date);
         return (
@@ -80,13 +84,6 @@ export class SearchDiv extends React.Component {
             </form>
             </div>
 
-            /*your perfect stay just a click away*/
-            /*feel like home*/
-            /*latest reviews,lowest prices*/
-            /*enjoy ur holidays with insite*/
-            /*we are Your partener to find luxury hotels*/
-            /*the vacation heaven*/
-            /*best place to stay*/
         )
     }
 }

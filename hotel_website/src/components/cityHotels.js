@@ -45,7 +45,7 @@ reviewsChange(e)
 setHotel(res)
 {
     this.props.setHotelResp(res);
-    console.log(res);
+    //console.log(res);
 }
 render() {
     return (

@@ -17,11 +17,17 @@ export class BookNow extends React.Component {
   }
   async handleContinue(e) {
     e.preventDefault();
+    var date1 = new Date(e.target.checkin.value); 
+    var date2 = new Date(e.target.checkout.value); 
+    var Difference_In_Time = date2.getTime() - date1.getTime(); 
+    var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+
     await this.setState({checkin:e.target.checkin.value ,
     checkout:e.target.checkout.value,
     rooms:e.target.rooms.value,
     guest:e.target.guest.value})
-    await this.props.confirm((this.props.hotelResp.min_total_price)*(this.state.rooms),
+    console.log(Difference_In_Days);
+    await this.props.confirm((this.props.hotelResp.min_total_price)*(this.state.rooms)*(Difference_In_Days),
     this.state.rooms,this.state.checkin,this.state.checkout);
     this.setState({submitted:true});
 
@@ -30,21 +36,27 @@ export class BookNow extends React.Component {
   async updatedate() {
     console.log('update date');
     var firstdate = document.getElementById("checkin").value;
+    var newdate = new Date(firstdate);
+    newdate.setDate(newdate.getDate() + 20);
+    let maxdate=newdate.getFullYear() + "-" + (("0" + (newdate.getMonth() + 1)).slice(-2)) + "-" + ("0" + (newdate.getDate())).slice(-2)
+    console.log(maxdate);
     document.getElementById("checkout").value = "";
     document.getElementById("checkout").setAttribute("min",firstdate);
+    document.getElementById("checkout").setAttribute("max",maxdate);
     console.log(document.getElementById("checkout").getAttribute("min"));
   }
     render() {
+      if(this.state.submitted===true)
+      return (<Redirect to="/confirmhotel"/>)
       console.log('confirmation rendered');
       let today = new Date();
       let tommorrow = new Date();
       tommorrow.setDate(today.getDate()+1);
-      let formatted_date = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate()
-      let next_date = tommorrow.getFullYear() + "-" + (tommorrow.getMonth() + 1) + "-" + tommorrow.getDate()
+      let formatted_date = today.getFullYear() + "-" + (("0" + (today.getMonth() + 1)).slice(-2)) + "-" + ("0" + (today.getDate())).slice(-2)
+      let next_date = tommorrow.getFullYear() + "-" + (("0" + (tommorrow.getMonth() + 1)).slice(-2)) + "-" + ("0" + (tommorrow.getDate())).slice(-2)
       console.log(formatted_date);
       console.log(next_date);  
-      if(this.state.submitted===true)
-      return (<Redirect to="/confirmhotel"/>)
+
         return (
             <div className="booking">
             <Navbar dealLogout={this.props.dealLogout}/>

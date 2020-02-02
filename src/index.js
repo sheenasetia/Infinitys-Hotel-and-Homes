@@ -7,7 +7,7 @@ var bookings = require('./routes/bookings');
 var path = require('path'); 
 const router = express.Router();
 const session = require('express-session');
-const stripe = require("stripe")("sk_test_mPcsAk5pOxgeGFdTcf0pillp00L49Bgxt5");
+const stripe = require("stripe")(process.env.STRIPE_SECRET_API_KEY);
 
 
 

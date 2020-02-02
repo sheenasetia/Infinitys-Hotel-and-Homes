@@ -102,7 +102,6 @@ export class ConfirmHotel extends Component{
     }
 }
 
-//pk_test_Kx3kJTWhGpcMyY3Jc6UsHnWZ006B2y9bvO
 
 
 

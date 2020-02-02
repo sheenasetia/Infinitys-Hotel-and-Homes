@@ -5,6 +5,8 @@ import 'font-awesome/css/font-awesome.min.css';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { Carousel } from './carousel';
 import {Link} from 'react-router-dom';
+require('dotenv').config();
+
 export class Advertisement extends React.Component {
 	constructor() {
 		super();
@@ -26,7 +28,7 @@ export class Advertisement extends React.Component {
             "method": "GET",
             "headers": {
               "x-rapidapi-host": "apidojo-booking-v1.p.rapidapi.com",
-              "x-rapidapi-key": "9f8ad6c750mshf0b1f680b88141ep1deb54jsndb7cd93136e0"
+              "x-rapidapi-key": process.env.REACT_APP_RAPID_API_KEY
             }
           })
               .then(res =>res.json())
@@ -48,7 +50,7 @@ export class Advertisement extends React.Component {
                 "method": "GET",
                 "headers": {
                     "x-rapidapi-host": "apidojo-booking-v1.p.rapidapi.com",
-                    "x-rapidapi-key": "9f8ad6c750mshf0b1f680b88141ep1deb54jsndb7cd93136e0"
+                    "x-rapidapi-key": process.env.REACT_APP_RAPID_API_KEY
                 }
             })
             .then(res => {
